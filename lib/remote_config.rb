@@ -1,4 +1,4 @@
-#require "remote_config/version"
+require "remote_config/version"
 require "aws-sdk-lambda"
 require "json"
 
@@ -6,7 +6,7 @@ module RemoteConfig
   CLIENT = Aws::Lambda::Client.new(region: "us-west-2")
 
   def get_config_keys(key)
-    req_payload = {key: key}
+    req_payload = { key: key }
     env = ENV["ENV"]
     if env
       req_payload['env'] = env
